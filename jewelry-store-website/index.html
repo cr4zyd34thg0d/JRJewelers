@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Jewelry - Fine Jewelry & Expert Repairs</title>
+    <meta name="description" content="Discover exquisite jewelry pieces and professional repair services. Local jewelry store specializing in custom pieces, engagement rings, and expert jewelry restoration.">
+    <meta name="keywords" content="jewelry, engagement rings, wedding bands, jewelry repair, custom jewelry, local jeweler">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        /* Custom animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Jewelry showcase styling */
+        .jewelry-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .jewelry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        /* Hero section background */
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* Gallery grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Repair form styling */
+        .repair-form {
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            border: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="font-playfair text-2xl font-bold text-gray-800">
+                        <i class="fas fa-gem text-purple-600 mr-2"></i>
+                        <span class="store-name">Elegant Jewelry</span>
+                    </h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#showcase" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Showcase</a>
+                        <a href="#gallery" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Gallery</a>
+                        <a href="#repairs" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Repairs</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#showcase" class="block text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-base font-medium">Showcase</a>
+                <a href="#gallery" class="block text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-base font-medium">Gallery</a>
+                <a href="#repairs" class="block text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-base font-medium">Repairs</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center fade-in">
+                <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-6">
+                    Exquisite Jewelry
+                    <span class="block text-yellow-300">Crafted with Love</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Discover our stunning collection of fine jewelry and experience our expert repair services. 
+                    Creating beautiful moments since 1985.
+                </p>
+                <div class="space-x-4">
+                    <a href="#showcase" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition-colors inline-block">
+                        View Collection
+                    </a>
+                    <a href="#repairs" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors inline-block">
+                        Repair Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-in">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-ring text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-2">Custom Design</h3>
+                    <p class="text-gray-600">Create unique, personalized pieces that tell your story</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-2">Expert Repairs</h3>
+                    <p class="text-gray-600">Professional restoration and repair services for all jewelry types</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-2">Certified Quality</h3>
+                    <p class="text-gray-600">All pieces come with certificates of authenticity and quality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jewelry Showcase Section -->
+    <section id="showcase" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-gray-800 mb-4">Featured Collection</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Discover our handpicked selection of exquisite jewelry pieces, each crafted with precision and passion.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="jewelry-showcase">
+                <!-- Jewelry items will be populated by JavaScript -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
+                    View Full Collection
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-gray-800 mb-4">Our Gallery</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Browse through our stunning collection and see the craftsmanship that goes into every piece.
+                </p>
+            </div>
+            
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Repair Services Section -->
+    <section id="repairs" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-gray-800 mb-4">Jewelry Repair Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Trust our expert craftsmen to restore your precious jewelry to its original beauty.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Repair Services List -->
+                <div>
+                    <h3 class="font-playfair text-2xl font-semibold mb-6">Our Repair Services</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Ring Resizing</h4>
+                                <p class="text-gray-600">Professional ring sizing for the perfect fit</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Stone Setting & Replacement</h4>
+                                <p class="text-gray-600">Expert stone setting and replacement services</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Chain & Bracelet Repair</h4>
+                                <p class="text-gray-600">Fix broken chains, clasps, and links</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Watch Repair</h4>
+                                <p class="text-gray-600">Battery replacement and mechanical watch servicing</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Cleaning & Polishing</h4>
+                                <p class="text-gray-600">Restore the shine and luster to your jewelry</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Custom Restoration</h4>
+                                <p class="text-gray-600">Restore antique and vintage pieces</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Repair Request Form -->
+                <div class="repair-form rounded-lg p-8">
+                    <h3 class="font-playfair text-2xl font-semibold mb-6">Request a Repair</h3>
+                    <form id="repair-form" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        
+                        <div>
+                            <label for="repairType" class="block text-sm font-medium text-gray-700 mb-1">Type of Repair *</label>
+                            <select id="repairType" name="repairType" required 
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option value="">Select repair type...</option>
+                                <option value="ring-resizing">Ring Resizing</option>
+                                <option value="stone-setting">Stone Setting/Replacement</option>
+                                <option value="chain-repair">Chain/Bracelet Repair</option>
+                                <option value="watch-repair">Watch Repair</option>
+                                <option value="cleaning">Cleaning & Polishing</option>
+                                <option value="restoration">Custom Restoration</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description of Issue *</label>
+                            <textarea id="description" name="description" rows="4" required 
+                                      placeholder="Please describe the repair needed in detail..."
+                                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label for="urgency" class="block text-sm font-medium text-gray-700 mb-1">Urgency</label>
+                            <select id="urgency" name="urgency" 
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option value="standard">Standard (1-2 weeks)</option>
+                                <option value="rush">Rush (3-5 days)</option>
+                                <option value="emergency">Emergency (24-48 hours)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="newsletter" name="newsletter" class="mr-2">
+                                <span class="text-sm text-gray-700">Subscribe to our newsletter for special offers</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-purple-600 text-white py-3 px-6 rounded-md font-semibold hover:bg-purple-700 transition-colors">
+                            Submit Repair Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-gray-800 mb-4">Visit Our Store</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Come see our collection in person or contact us for any questions.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="font-playfair text-2xl font-semibold mb-6">Get in Touch</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-purple-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Address</h4>
+                                <p class="text-gray-600 store-address">123 Main Street<br>Downtown District<br>Your City, State 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-phone text-purple-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <a href="tel:(555) 123-4567" class="text-gray-600 hover:text-purple-600 store-phone">(555) 123-4567</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-envelope text-purple-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <a href="mailto:info@elegantjewelry.com" class="text-gray-600 hover:text-purple-600 store-email">info@elegantjewelry.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-clock text-purple-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Hours</h4>
+                                <p class="text-gray-600 store-hours">
+                                    Monday - Friday: 10:00 AM - 7:00 PM<br>
+                                    Saturday: 10:00 AM - 6:00 PM<br>
+                                    Sunday: 12:00 PM - 5:00 PM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-purple-600 hover:text-purple-700 text-2xl social-facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="text-purple-600 hover:text-purple-700 text-2xl social-instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-purple-600 hover:text-purple-700 text-2xl social-pinterest">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3 class="font-playfair text-2xl font-semibold mb-6">Send us a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="contactFirstName" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                <input type="text" id="contactFirstName" name="contactFirstName" required 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                            <div>
+                                <label for="contactLastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                                <input type="text" id="contactLastName" name="contactLastName" required 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="contactEmail" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
+                            <input type="text" id="subject" name="subject" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-purple-600 text-white py-3 px-6 rounded-md font-semibold hover:bg-purple-700 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-playfair text-xl font-semibold mb-4">
+                        <i class="fas fa-gem text-purple-400 mr-2"></i>
+                        <span class="store-name">Elegant Jewelry</span>
+                    </h3>
+                    <p class="text-gray-300">
+                        Creating beautiful jewelry and providing expert repair services since <span class="store-founded">1985</span>.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#showcase" class="hover:text-white transition-colors">Showcase</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="#repairs" class="hover:text-white transition-colors">Repairs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Custom Design</li>
+                        <li>Ring Resizing</li>
+                        <li>Stone Setting</li>
+                        <li>Watch Repair</li>
+                        <li>Jewelry Cleaning</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p><i class="fas fa-phone mr-2"></i><span class="store-phone">(555) 123-4567</span></p>
+                        <p><i class="fas fa-envelope mr-2"></i><span class="store-email">info@elegantjewelry.com</span></p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i><span class="store-address-short">123 Main Street, Your City</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Elegant Jewelry. All rights reserved. | Designed with ❤️ for your success</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Configuration -->
+    <script src="store-config.js"></script>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Dynamic Content Loading -->
+    <script>
+        // Update page content with store configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStoreInfo();
+        });
+        
+        function updateStoreInfo() {
+            // Update store name in navigation and footer
+            const storeNameElements = document.querySelectorAll('.store-name');
+            storeNameElements.forEach(el => {
+                el.textContent = STORE_INFO.name;
+            });
+            
+            // Update page title
+            document.title = `${STORE_INFO.name} - Fine Jewelry & Expert Repairs`;
+            
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = STORE_INFO.description;
+            }
+            
+            // Update contact information
+            updateContactInfo();
+            
+            // Update business hours
+            updateBusinessHours();
+            
+            // Update social media links
+            updateSocialLinks();
+            
+            // Apply branding colors
+            applyBranding();
+        }
+        
+        function updateContactInfo() {
+            // Phone numbers
+            const phoneElements = document.querySelectorAll('.store-phone');
+            phoneElements.forEach(el => {
+                el.textContent = STORE_INFO.contact.phone;
+                if (el.tagName === 'A') {
+                    el.href = `tel:${STORE_INFO.contact.phone}`;
+                }
+            });
+            
+            // Email addresses
+            const emailElements = document.querySelectorAll('.store-email');
+            emailElements.forEach(el => {
+                el.textContent = STORE_INFO.contact.email;
+                if (el.tagName === 'A') {
+                    el.href = `mailto:${STORE_INFO.contact.email}`;
+                }
+            });
+            
+            // Address
+            const addressElements = document.querySelectorAll('.store-address');
+            addressElements.forEach(el => {
+                el.innerHTML = `${STORE_INFO.contact.address.street}<br>${STORE_INFO.contact.address.area}<br>${STORE_INFO.contact.address.cityState}`;
+            });
+        }
+        
+        function updateBusinessHours() {
+            const hoursElements = document.querySelectorAll('.store-hours');
+            hoursElements.forEach(el => {
+                el.innerHTML = formatBusinessHours();
+            });
+        }
+        
+        function updateSocialLinks() {
+            const facebookLinks = document.querySelectorAll('.social-facebook');
+            facebookLinks.forEach(el => {
+                el.href = STORE_INFO.contact.social.facebook;
+            });
+            
+            const instagramLinks = document.querySelectorAll('.social-instagram');
+            instagramLinks.forEach(el => {
+                el.href = STORE_INFO.contact.social.instagram;
+            });
+            
+            const pinterestLinks = document.querySelectorAll('.social-pinterest');
+            pinterestLinks.forEach(el => {
+                el.href = STORE_INFO.contact.social.pinterest;
+            });
+        }
+        
+        function applyBranding() {
+            // Apply custom colors from configuration
+            const root = document.documentElement;
+            root.style.setProperty('--primary-color', STORE_INFO.branding.primaryColor);
+            root.style.setProperty('--secondary-color', STORE_INFO.branding.secondaryColor);
+            root.style.setProperty('--accent-color', STORE_INFO.branding.accentColor);
+        }
+    </script>
+</body>
+</html>
