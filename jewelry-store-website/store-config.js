@@ -103,9 +103,20 @@ const STORE_INFO = {
         // Google Analytics (get this from Google Analytics)
         googleAnalyticsId: "", // Example: "GA_TRACKING_ID"
         
-        // Form handling (see deployment guide for setup)
-        formspreeId: "", // Example: "your-form-id" from formspree.io
-        netlifyForms: false // Set to true if using Netlify
+        // ===== FORM EMAIL SETUP (IMPORTANT!) =====
+        // Choose ONE option below to receive form submissions via email:
+        
+        // OPTION 1: Formspree (Recommended - Works with any hosting)
+        // 1. Go to https://formspree.io and create free account
+        // 2. Create a new form and get your form ID
+        // 3. Put your form ID here (looks like: "xpzgkqyw")
+        formspreeId: "", // Example: "xpzgkqyw"
+        
+        // OPTION 2: Netlify Forms (Only if hosting on Netlify)
+        // Set to true if you're hosting on Netlify
+        netlifyForms: false,
+        
+        // If neither is set up, forms will show a warning message
     }
 };
 
